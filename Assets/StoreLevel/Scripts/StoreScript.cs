@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
-public class BackScript : MonoBehaviour {
+public class StoreScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -14,8 +13,9 @@ public class BackScript : MonoBehaviour {
 	
 	}
 
-	public void LoadStageBack(){
-		Application.LoadLevel ("StoreScene");
-		Time.timeScale = 1f;
+	public void LoadStage() {
+		print ("button works");
+		Level level = new Level (19, "testLudde");
+		level.launchLevel ();	
 	}
 }

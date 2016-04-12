@@ -8,8 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Unity Remote/Remote.unity
   - enabled: 1
-    path: Assets/MiniGames/Minigame Prototype 1/Scenes/testLudde.unity
+    path: Assets/GameLevel1/Minigame Prototype 1/Scenes/testLudde.unity
   - enabled: 1
-    path: Assets/StartScreen/Scenes/MainScreen.unity
+    path: Assets/StartLevel/Scenes/MainScreen.unity
   - enabled: 1
-    path: Assets/MainlLevels/Scenes/mainlevel_1.unity
+    path: Assets/MainLevel1/Scenes/mainlevel_1.unity
