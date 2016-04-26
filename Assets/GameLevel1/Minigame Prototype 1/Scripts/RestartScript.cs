@@ -14,7 +14,7 @@ public class RestartScript : MonoBehaviour {
 	}
 
 	public void LoadStageRestart(){
-		Application.LoadLevel ("testLudde");
+		Application.LoadLevel ("minigame_1");
 		Time.timeScale = 1f;
 	}
 }

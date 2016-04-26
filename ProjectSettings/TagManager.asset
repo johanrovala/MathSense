@@ -8,6 +8,7 @@ TagManager:
   - coin
   - obstacle
   - character
+  - finishedObstacle
   layers:
   - Default
   - TransparentFX

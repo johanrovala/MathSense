@@ -1,39 +1,51 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class StoreScript : MonoBehaviour {
 
 	Button[] clueButton;
-	Texture2D transitionSprite;
-	SpriteRenderer bg;
-	Sprite test;
+	Texture2D spriteTexture;
+	Sprite clueSprite;
+	List<Clue> clueList;
+	List<Level> levelList;
 
 	// Use this for initialization
+	// We start of by gathering all of our buttons in the Store Canvas. 
+	// After this we fetch whatever Texture2D we want the clue button to transform into
+	// The next step is to programatically create a sprite using the Texture2D and a Rect.
+
 	void Start () {
+
 		clueButton = GameObject.Find ("Canvas").GetComponentsInChildren<Button>();
-		transitionSprite = Instantiate (Resources.Load ("Watermelon")) as Texture2D;
-		Rect rec = new Rect (0, 0, transitionSprite.width, transitionSprite.height);
-		test = Sprite.Create (transitionSprite, rec, new Vector2(0,0), 1);
-		//bg.sprite = Sprite.Create (transitionSprite, rec, new Vector2(0, 0),1f);
-		print (Resources.Load ("Watermelon"));
-		print (transitionSprite);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		print (Coin.getCoinScore ());
+
+		clueList = new List<Clue> ();
+		Clue clue1 = new Clue (10, "Watermelon", "Lemon", clueButton [1]);
+		clueList.Add (clue1);
+		Clue clue2 = new Clue (10, "Watermelon", "Lemon", clueButton [2]);
+		clueList.Add (clue2);
+		Clue clue3 = new Clue (10, "Watermelon", "Lemon", clueButton [3]);
+		clueList.Add (clue3);
+
+		levelList = new List<Level> ();	
+		Level level1 = new Level (19, "minigame_1");
+		levelList.Add (level1);
+
 	}
 
-	public void LoadStage() {
-		print ("button works");
-		Level level = new Level (19, "testLudde");
-		level.launchLevel ();	
+	void Update () {
+
+
+	}
+
+	public void LoadStage(int i) {
+		levelList [i].launchLevel ();
 	}
 
 	public void clueButtonTransition(int i) {
-		Button button = clueButton [i];
-		button.image.sprite = test;
-		print (transitionSprite);
+		clueList [i].activate ();
 	}
+	
 }

@@ -3,16 +3,16 @@ using System.Collections;
 
 public class Level{
 
-	private int cost;
+	private int reward;
 	private string path;
 
-	public Level (int cost, string path){
-		this.cost = cost;
+	public Level (int reward, string path){
+		this.reward = reward;
 		this.path = path;
 	}
 
 	public int getCost(){
-		return this.cost;
+		return this.reward;
 	}
 
 	public string getPath(){
@@ -21,6 +21,10 @@ public class Level{
 
 	public void launchLevel(){
 		Application.LoadLevel (path);
+	}
+
+	public void updateCoinScore(){
+	
 	}
 
 

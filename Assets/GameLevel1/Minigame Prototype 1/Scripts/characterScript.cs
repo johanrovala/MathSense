@@ -92,6 +92,11 @@ public class characterScript : MonoBehaviour {
 			setCountText();
 		}
 		if (coll.gameObject.tag == "obstacle") {
+			Coin.updateCoinScore(coinScore);
+			endGameScreen();
+		}
+		if (coll.gameObject.tag == "finishedObstacle") {
+			Coin.updateCoinScore(coinScore);
 			endGameScreen();
 		}
 	}
