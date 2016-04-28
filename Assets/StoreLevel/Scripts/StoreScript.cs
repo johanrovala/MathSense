@@ -18,6 +18,7 @@ public class StoreScript : MonoBehaviour {
 
 	void Start () {
 
+
 		clueButton = GameObject.Find ("Canvas").GetComponentsInChildren<Button>();
 		print (Coin.getCoinScore ());
 
@@ -40,11 +41,11 @@ public class StoreScript : MonoBehaviour {
 
 	}
 
-	public void LoadStage(int i) {
+	public void launchLevel(int i) {
 		levelList [i].launchLevel ();
 	}
 
-	public void clueButtonTransition(int i) {
+	public void buyClue(int i) {
 		clueList [i].activate ();
 	}
 	

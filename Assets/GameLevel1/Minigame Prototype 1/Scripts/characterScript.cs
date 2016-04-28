@@ -92,11 +92,14 @@ public class characterScript : MonoBehaviour {
 			setCountText();
 		}
 		if (coll.gameObject.tag == "obstacle") {
-			Coin.updateCoinScore(coinScore);
+
+			// Should NOT update coinScore, only there for testing reasons since actually finishing the game is impossible...
+
+			Coin.updateCoinScore("+", coinScore);
 			endGameScreen();
 		}
 		if (coll.gameObject.tag == "finishedObstacle") {
-			Coin.updateCoinScore(coinScore);
+			Coin.updateCoinScore("+", coinScore);
 			endGameScreen();
 		}
 	}

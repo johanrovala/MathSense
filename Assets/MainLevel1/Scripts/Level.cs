@@ -22,10 +22,7 @@ public class Level{
 	public void launchLevel(){
 		Application.LoadLevel (path);
 	}
-
-	public void updateCoinScore(){
 	
-	}
 
 
 

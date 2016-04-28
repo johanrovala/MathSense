@@ -533,7 +533,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 485960130}
-        m_MethodName: clueButtonTransition
+        m_MethodName: buyClue
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -648,7 +648,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 485960130}
-        m_MethodName: clueButtonTransition
+        m_MethodName: buyClue
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -745,7 +745,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 485960130}
-        m_MethodName: clueButtonTransition
+        m_MethodName: buyClue
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

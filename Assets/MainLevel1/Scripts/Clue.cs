@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 
+
 public class Clue{
 		
 
@@ -35,7 +36,15 @@ public class Clue{
 	}
 
 	public void activate(){
-		button.image.sprite = clueTransitionSprite;
+		Debug.Log (Coin.getCoinScore());
+		if (Coin.getCoinScore() >= this.cost){
+			Coin.updateCoinScore("-", this.cost);
+			Debug.Log (Coin.getCoinScore());
+			button.image.sprite = clueTransitionSprite;
+		}
+		else if(Coin.getCoinScore() < this.cost){
+			Debug.Log("insufficient amount of coins. Image displaying this will be implemented shortly!");
+		}
 	}
 	
 
