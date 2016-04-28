@@ -98,7 +98,6 @@ GameObject:
   - 223: {fileID: 423069}
   - 114: {fileID: 423068}
   - 114: {fileID: 423067}
-  - 114: {fileID: 423072}
   - 114: {fileID: 423071}
   m_Layer: 5
   m_Name: EndGameCanvas
@@ -188,18 +187,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 423066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306583176920d40ccbd8e52da685eabf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &423072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 423066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1d9ebd780f464259bb6a4405daa6f55, type: 3}
+  m_Script: {fileID: 11500000, guid: e0b718b93b18043cab48575e02552c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &20153127
@@ -1965,7 +1953,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 423071}
-        m_MethodName: LoadStageBack
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3902,8 +3890,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 423072}
-        m_MethodName: LoadStageRestart
+      - m_Target: {fileID: 423071}
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

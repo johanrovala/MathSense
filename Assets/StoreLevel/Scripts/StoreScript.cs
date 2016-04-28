@@ -11,11 +11,6 @@ public class StoreScript : MonoBehaviour {
 	List<Clue> clueList;
 	List<Level> levelList;
 
-	// Use this for initialization
-	// We start of by gathering all of our buttons in the Store Canvas. 
-	// After this we fetch whatever Texture2D we want the clue button to transform into
-	// The next step is to programatically create a sprite using the Texture2D and a Rect.
-
 	void Start () {
 
 

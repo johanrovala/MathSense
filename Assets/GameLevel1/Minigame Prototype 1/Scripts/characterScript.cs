@@ -18,7 +18,6 @@ public class characterScript : MonoBehaviour {
 	
 
 	void Start () {
-		//DontDestroyOnLoad (transform);
 		rb = GetComponent<Rigidbody> ();
 		UIText = GameObject.Find ("CoinScore");
 		text = UIText.GetComponent<Text> ();

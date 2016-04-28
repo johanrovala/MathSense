@@ -36,12 +36,16 @@ public class Clue{
 	}
 
 	public void activate(){
+
+		// If player has sufficient amount of coins, go ahead and update the coinscore and the sprite for the clue
 		Debug.Log (Coin.getCoinScore());
 		if (Coin.getCoinScore() >= this.cost){
 			Coin.updateCoinScore("-", this.cost);
 			Debug.Log (Coin.getCoinScore());
 			button.image.sprite = clueTransitionSprite;
 		}
+
+		// if not, display this fancy debug message.
 		else if(Coin.getCoinScore() < this.cost){
 			Debug.Log("insufficient amount of coins. Image displaying this will be implemented shortly!");
 		}

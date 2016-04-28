@@ -3,17 +3,6 @@ using System.Collections;
 
 public class obstacleScript : MonoBehaviour {
 
-	/*
-	 * We will implement randomized positions for the obstacles later on 
-	 * Implementation has started.
-	 * 
-	 * 
-	 * Basically we want to load all the ground prefabs and load one obstacle on one of them. 
-	 * No more than one obstacle can be placed on a ground prefab. 
-	 * As the obstacle leaves the screen, it will be placed on a random position on the base
-	 * of the ground prefab.
-	 */
-	
 
 	// Use this for initialization
 	void Start () {
