@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class characterScript : MonoBehaviour {
+public class characterScript : MonoBehaviour{
 
 	Rigidbody rb;
 	public float jumpHeight;
@@ -12,7 +12,7 @@ public class characterScript : MonoBehaviour {
 	GameObject UIText;
 	Vector3 v;
 	public Text text;
-	public static int coinScore;
+	public int coinScore;
 	public GameObject endGameCanvas;
 		
 	

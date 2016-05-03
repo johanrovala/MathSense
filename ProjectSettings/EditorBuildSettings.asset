@@ -14,4 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MainLevel1/Scenes/mainlevel_1.unity
   - enabled: 1
-    path: Assets/StoreLevel/Scenes/StoreScene.unity
+    path: Assets/Shop/Scenes/StoreScene.unity
