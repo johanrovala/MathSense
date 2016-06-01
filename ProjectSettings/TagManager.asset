@@ -9,6 +9,15 @@ TagManager:
   - obstacle
   - character
   - finishedObstacle
+  - clue1
+  - clue2
+  - shopText
+  - New Tag
+  - Fruit
+  - DeathZone
+  - Bounce
+  - 1UP
+  - ShopCanvas
   layers:
   - Default
   - TransparentFX
@@ -18,7 +27,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - ground
   - 
   - 
   - 
