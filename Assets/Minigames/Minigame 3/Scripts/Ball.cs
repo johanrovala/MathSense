@@ -1,19 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Ball : MonoBehaviour {
+
+
+	/*
+	 * Since this minigame was first written in using a two year old version of the Unity C# API, some of the physics 
+	 * implementation does not function as we had hoped. Due to time restraints we opted to make quick fixes regarding 
+	 * some deprecated functions, switching them out for what Unity had suggested. The result of this is that the ball 
+	 * bounces in an awkward way.
+	 */ 
 	
 	private Paddle paddle;
 	private bool hasStarted = false;
 	private Vector3 paddleToBallVector;
 
+	private int coinScore;
+	private Text coinText;
+
 	// Use this for initialization
 	void Start () {
+		coinText = GameObject.Find ("CoinText").GetComponent<Text> ();
 		paddle = GameObject.FindObjectOfType<Paddle>();
 		paddleToBallVector = this.transform.position - paddle.transform.position;
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		if (!hasStarted) {
 			// Lock the ball relative to the paddle.
@@ -35,5 +47,17 @@ public class Ball : MonoBehaviour {
 			//audio.Play();
 			GetComponent<Rigidbody2D>().velocity += tweak;
 		}
+
+		if (collision.gameObject.tag == "Breakable") {
+			coinScore++;
+			Debug.Log ("Has hit a brick and the coinScore is: " + coinScore);
+			Coin.updateCoinScore ("+", 1);
+			updateCoinText();
+
+		}
+	}
+
+	private void updateCoinText() {
+		coinText.text = coinScore.ToString();
 	}
 }

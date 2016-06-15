@@ -41,14 +41,21 @@ public class StoreScript : MonoBehaviour {
 		clueList.Add (clue2);
 		
 		levelList = new List<Level> ();	
-		Level level1 = new Level (19, "level2");
+		Level level1 = new Level (19, "minigame_1");
 		levelList.Add (level1);
 		Level level2 = new Level (19, "level1");
 		levelList.Add (level2);
 		Level level3 = new Level (19, "Level_01");
 		levelList.Add (level3);
 
-		//destroySprite (clue1);
+		// Check if our clues have previously been activated. 
+
+		if (ClueMaster.firstClueActive) {
+			clue1.activate(0);
+		}
+		if (ClueMaster.secondClueActive) {
+			clue2.activate(1);
+		}
 	}
 
 	private void Awake(){
@@ -62,38 +69,21 @@ public class StoreScript : MonoBehaviour {
 
 
 	public void launchLevel(int i) {
+		ButtonSound.playSound ();
 		levelList [i].launchLevel ();
 	}
-	/*
-	private void saveSprite(Clue c){
-			markedObjects.Add(c);
-			Debug.Log ("Save");
-			print (markedObjects [0]);
-			DontDestroyOnLoad (c.getSprite());
-	}
-
-	private void destroySprite(Clue c){
-		foreach(Clue g in markedObjects){
-			print (g);
-			if (g.getId() != c.getId()){
-				Debug.Log("Destroy");
-				c.destroyThis();
-			}else{
-				Debug.Log("Id's are equal");
-			}
-		}
-		Debug.Log ("First iteration");
-	}*/
 
 	public void buyClue(int i) {
-		clueList [i].activate ();
+		ButtonSound.playSound ();
+		clueList [i].activate (i);
 		updateCoinText ();
-		//saveSprite (clueList[i]);
 		// not the best solution, just implemented in order to have a working product for the presentation.
 		clueButton [i+3].interactable = false;
+		ClueMaster.activateClue (i);
 	}
 
 	public void backToMainlevel() {
+		ButtonSound.playSound ();
 		Application.LoadLevel ("mainlevel_1");
 	}
 

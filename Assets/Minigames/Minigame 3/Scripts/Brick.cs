@@ -1,7 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Brick : MonoBehaviour {
+
+	/*
+	 * Since this minigame was first written in using a two year old version of the Unity C# API, some of the physics 
+	 * implementation does not function as we had hoped. Due to time restraints we opted to make quick fixes regarding 
+	 * some deprecated functions, switching them out for what Unity had suggested. The result of this is that the ball 
+	 * bounces in an awkward way.
+	 */ 
 
 	public AudioClip crack;
 	public Sprite[] hitSprites;
@@ -11,6 +19,9 @@ public class Brick : MonoBehaviour {
 	private int timesHit;
 	private LevelManager levelManager;
 	private bool isBreakable;
+
+	private Text coinText;
+	private int scoreCount;
 	
 	// Use this for initialization
 	void Start () {
@@ -19,19 +30,13 @@ public class Brick : MonoBehaviour {
 		if (isBreakable) {
 			breakableCount++;
 		}
-		
+
 		timesHit = 0;
 		levelManager = GameObject.FindObjectOfType<LevelManager>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	
 	void OnCollisionEnter2D (Collision2D col) {
 		AudioSource.PlayClipAtPoint (crack, transform.position, 0.8f);
-		Coin.updateCoinScore ("+", 1);
 		if (isBreakable) {
 			HandleHits();
 		}
@@ -64,7 +69,7 @@ public class Brick : MonoBehaviour {
 			Debug.LogError ("Brick sprite missing");
 		}
 	}
-	
+
 	// TODO Remove this method once we can actually win!
 	void SimulateWin () {
 		levelManager.LoadNextLevel();

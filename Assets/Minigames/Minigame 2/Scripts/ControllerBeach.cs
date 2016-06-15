@@ -69,16 +69,14 @@ public class ControllerBeach : MonoBehaviour {
     {
         if (collider2d.tag == "Fruit") {
             fruitCounter++;
-            score.text = "x" + fruitCounter;
+			if (fruitCounter % 4 == 0) {
+				actualCoinCount++;
+			}
+			updateCoinText();
             Destroy(collider2d.gameObject);
 
             audioSource.clip = Fruit;
             audioSource.Play();
-
-			if (fruitCounter % 3 == 0) {
-				print ("hej");
-				actualCoinCount++;
-			}
         }
 
 
@@ -96,12 +94,15 @@ public class ControllerBeach : MonoBehaviour {
         if (collider2d.tag == "Finish")
         {
 
-            GetComponent<Rigidbody2D>().isKinematic = true;
-
-            audioSource.clip = Win;
-			Coin.updateCoinScore("+", actualCoinCount);
+			GetComponent<Rigidbody2D>().isKinematic = true;
+			BackgroundMusic.Pause();
+			audioSource.clip = Win;
             audioSource.Play();
 			endGameScreen();			
+			Debug.Log ("actualCoinCount: " + actualCoinCount);
+			Coin.updateCoinScore("+", actualCoinCount);
+
+			//endGameScreen();			
 		}
 
         if (collider2d.tag == "DeathZone") {
@@ -123,6 +124,7 @@ public class ControllerBeach : MonoBehaviour {
                 Destroy(this.GetComponent<Rigidbody2D>());
                 Destroy(this.GetComponent<PolygonCollider2D>());
 
+				BackgroundMusic.Pause ();
                 audioSource.clip = GameOver;
                 audioSource.Play();
 
@@ -138,6 +140,10 @@ public class ControllerBeach : MonoBehaviour {
 
     }
 
+	private void updateCoinText() {
+		score.text = actualCoinCount.ToString();
+	}
+
     public void PlaySound (AudioClip playClip)
     {
         audioSource.clip = playClip;
@@ -146,6 +152,7 @@ public class ControllerBeach : MonoBehaviour {
     }
 
 	public void endGameScreen(){
+		Time.timeScale = 0f;
 		endGameCanvas.SetActive (true);
 	}
 	

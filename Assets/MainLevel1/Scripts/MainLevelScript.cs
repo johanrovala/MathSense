@@ -10,22 +10,47 @@ public class MainLevelScript : MonoBehaviour {
 	public InputField userGuessField;
 	Image[] inputFieldSprites;
 
+	public GameObject[] clue1;
+	public GameObject[] clue2;
+
+
+	// for some odd reason setting dontPlayOnAwake to false in either Awake or Start did not stop the button sound from
+	// playing as the scene was initialized. The result of which is some ugly code where we change AudioSource.enabled several times.
+
+
+	
 
 	void Start(){
+
+		//MusicScript.Play ();
+
 		inputFieldSprites = Resources.LoadAll<Image> ("UI Sprites/answerField");
 		Debug.Log (inputFieldSprites.Length);
+
+		if (ClueMaster.firstClueActive) {
+			Debug.Log("Change clue 1");
+			clue1[0].SetActive (false);
+			clue1[1].SetActive (true);
+		}
+		if (ClueMaster.secondClueActive) {
+			Debug.Log("Change clue 2");
+			clue2[0].SetActive (false);
+			clue2[1].SetActive (true);
+		}
 	}
 		
 	public void launchShop(){
+		ButtonSound.playSound ();
 		Application.LoadLevel ("StoreScene");
 	}
 
 	public void answerEquation() {
+		ButtonSound.playSound ();
 		try{
 			userGuess = int.Parse(userGuessField.text);
-		}catch (FormatException e){
+		}catch (FormatException){
 			Debug.Log("User tried to use invalid input, ie anything but a number");
-		}catch (OverflowException e){
+		}catch (OverflowException){
 			Debug.Log("User input was to big (larger than an int)");
 		}
 		if (isAnswerCorrect()) {

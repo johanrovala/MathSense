@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 
 
-public class Clue : MonoBehaviour{
-		
+public class Clue{
 
 	public int cost;
 
@@ -15,7 +14,6 @@ public class Clue : MonoBehaviour{
 	private Texture2D texture;
 	private Texture2D textureTransition;
 
-	private Button button;
 	private int id;
 
 	public bool test = false;
@@ -26,14 +24,13 @@ public class Clue : MonoBehaviour{
 
 	public Clue (int cost, SpriteRenderer spriteRenderer, Sprite sprite, Button button){
 		this.cost = cost;
-		this.button = button;
 		this.spriteRenderer = spriteRenderer;
 		this.sprite = sprite;
 		System.Random rnd = new System.Random ();
 		id = rnd.Next (1, 100);
 	}
 
-	public void activate(){
+	public void activate(int i){
 
 		// If player has sufficient amount of coins, go ahead and update the coinscore and the sprite for the clue
 		Debug.Log (Coin.getCoinScore());
@@ -42,7 +39,7 @@ public class Clue : MonoBehaviour{
 			Debug.Log ("Amount of coins after purchase: " + Coin.getCoinScore());
 			spriteRenderer.sprite = sprite;
 			test = true;
-			//button.image.sprite = clueTransitionSprite;
+			ClueMaster.activateClue (i);
 		}
 
 		// if not, display this fancy debug message.
@@ -62,17 +59,4 @@ public class Clue : MonoBehaviour{
 	public SpriteRenderer getSprite(){
 		return this.spriteRenderer;
 	}
-
-	public void destroyThis(){
-		Destroy (this.spriteRenderer);	
-	}
-
-	public void acknowledgeMainLevel(){
-		// since we are going to have a listview and also the posibility to change 
-		// the look of the equation in the mainlevel, i suggest we have a method of some sort (not just addToListView) 
-		// that acknowledges the main level of some changes needed to be made. 
-	}
-
-
-
 }

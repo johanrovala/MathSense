@@ -18,6 +18,11 @@ TagManager:
   - Bounce
   - 1UP
   - ShopCanvas
+  - Breakable
+  - activateClue
+  - activateClue2
+  - QuestionMarkClue2
+  - QuestionMarkClue
   layers:
   - Default
   - TransparentFX

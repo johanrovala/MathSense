@@ -3,6 +3,13 @@ using System.Collections;
 
 public class Paddle : MonoBehaviour {
 
+	/*
+	 * Since this minigame was first written in using a two year old version of the Unity C# API, some of the physics 
+	 * implementation does not function as we had hoped. Due to time restraints we opted to make quick fixes regarding 
+	 * some deprecated functions, switching them out for what Unity had suggested. The result of this is that the ball 
+	 * bounces in an awkward way.
+	 */ 
+
 	public bool autoPlay = false;
 	public float minX, maxX;
 	public float speed = 0.1f;

@@ -3,9 +3,12 @@ using System.Collections;
 
 public class Coin{
 
-	public static int coinScore;
+	public static int coinScore = 0;
 
 	public static void updateCoinScore(string s, int n) {
+
+		Debug.Log ("Updating coinscore");
+
 		if(s.Equals("+")){
 			coinScore += n;	
 		}else if(s.Equals("-")){
