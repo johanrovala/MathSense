@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
+
 
 public class CharacterMovingScript : MonoBehaviour {
 
@@ -38,10 +40,15 @@ public class CharacterMovingScript : MonoBehaviour {
 		v2 = new Vector2 (Time.deltaTime * 3f, 0);
 		character.transform.Translate (v2);
 
-		if (Input.GetKeyDown("space")){
-			Debug.Log ("Spacebar pressed");
-			triedJump = true;
+		try{
+			if (Input.GetKeyDown("space") || Input.GetTouch(0).phase == TouchPhase.Began){
+				Debug.Log ("Spacebar pressed");
+				triedJump = true;
 
+			}
+		}
+		catch (ArgumentException){
+		
 		}
 
 	}

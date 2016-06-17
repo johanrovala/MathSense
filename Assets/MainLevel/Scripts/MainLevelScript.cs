@@ -25,7 +25,6 @@ public class MainLevelScript : MonoBehaviour {
 		//MusicScript.Play ();
 
 		inputFieldSprites = Resources.LoadAll<Image> ("UI Sprites/answerField");
-		Debug.Log (inputFieldSprites.Length);
 
 		if (ClueMaster.firstClueActive) {
 			Debug.Log("Change clue 1");

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class ControllerBeach : MonoBehaviour {
 
@@ -45,15 +46,21 @@ public class ControllerBeach : MonoBehaviour {
 	void Update () {
         isOnGround = Physics2D.OverlapCircle(groundPoint.position, radius, ground);
         if (isOnGround){
-			if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space") /*||Input.GetTouch(0).phase == TouchPhase.Began*/){
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 500);
-                jumpTime = jumpDelay;
-                jumped = true;
-                animator.SetTrigger("jumped"); //change to jump animation
+			try{
 
-                audioSource.clip = Jump;
-                audioSource.Play();
-            }
+				if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space") ||Input.GetTouch(0).phase == TouchPhase.Began){
+                	GetComponent<Rigidbody2D>().AddForce(Vector2.up * 500);
+                	jumpTime = jumpDelay;
+                	jumped = true;
+                	animator.SetTrigger("jumped"); //change to jump animation
+
+                	audioSource.clip = Jump;
+                	audioSource.Play();
+            	}
+			}
+			catch (ArgumentException){
+			
+			}
         }
 
         jumpTime -= Time.deltaTime;

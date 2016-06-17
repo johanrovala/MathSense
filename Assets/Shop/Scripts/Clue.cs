@@ -33,10 +33,8 @@ public class Clue{
 	public void activate(int i){
 
 		// If player has sufficient amount of coins, go ahead and update the coinscore and the sprite for the clue
-		Debug.Log (Coin.getCoinScore());
 		if (Coin.getCoinScore() >= this.cost){
 			Coin.updateCoinScore("-", this.cost);
-			Debug.Log ("Amount of coins after purchase: " + Coin.getCoinScore());
 			spriteRenderer.sprite = sprite;
 			test = true;
 			ClueMaster.activateClue (i);
@@ -46,6 +44,10 @@ public class Clue{
 		else if(Coin.getCoinScore() < this.cost){
 			Debug.Log("insufficient amount of coins. Image displaying this will be implemented shortly!");
 		}
+	}
+
+	public void keepActivated(){
+		spriteRenderer.sprite = sprite;
 	}
 
 	public  bool isActivated(){

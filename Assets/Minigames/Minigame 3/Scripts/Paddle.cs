@@ -8,9 +8,13 @@ public class Paddle : MonoBehaviour {
 	 * implementation does not function as we had hoped. Due to time restraints we opted to make quick fixes regarding 
 	 * some deprecated functions, switching them out for what Unity had suggested. The result of this is that the ball 
 	 * bounces in an awkward way.
+	 * 
+	 * Ayaz has also not yet implemented the touch functionality for this minigame. I myself have not had time since i've 
+	 * been busy fixing everything else.
 	 */ 
 
 	public bool autoPlay = false;
+
 	public float minX, maxX;
 	public float speed = 0.1f;
 

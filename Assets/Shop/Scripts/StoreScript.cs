@@ -24,7 +24,17 @@ public class StoreScript : MonoBehaviour {
 	private Sprite[] testSprites;
 	static List<Clue> markedObjects = new List<Clue>();	
 
+
 	
+	void Awake(){
+		
+		textTest = GameObject.Find ("CoinCountText").GetComponent<Text> ();
+		clueButton = GameObject.Find ("Canvas").GetComponentsInChildren<Button>();
+		Debug.Log ("length of buttonlist" + clueButton.Length);
+
+		Debug.Log ("Awake running");
+	}
+
 	void Start () {
 
 		Debug.Log ("Start running");
@@ -41,32 +51,22 @@ public class StoreScript : MonoBehaviour {
 		clueList.Add (clue2);
 		
 		levelList = new List<Level> ();	
-		Level level1 = new Level (19, "minigame_1");
+		Level level1 = new Level (19, "MiniGame_1");
 		levelList.Add (level1);
-		Level level2 = new Level (19, "level1");
+		Level level2 = new Level (19, "MiniGame_2");
 		levelList.Add (level2);
-		Level level3 = new Level (19, "Level_01");
+		Level level3 = new Level (19, "MiniGame_3");
 		levelList.Add (level3);
 
 		// Check if our clues have previously been activated. 
 
 		if (ClueMaster.firstClueActive) {
-			clue1.activate(0);
+			clue1.keepActivated();
 		}
 		if (ClueMaster.secondClueActive) {
-			clue2.activate(1);
+			clue2.keepActivated();
 		}
 	}
-
-	private void Awake(){
-
-		textTest = GameObject.Find ("AmountOfCoinText").GetComponent<Text> ();
-		clueButton = GameObject.Find ("Canvas").GetComponentsInChildren<Button>();
-		print (Coin.getCoinScore ());
-
-		Debug.Log ("Awake running");
-	}
-
 
 	public void launchLevel(int i) {
 		ButtonSound.playSound ();
@@ -74,17 +74,15 @@ public class StoreScript : MonoBehaviour {
 	}
 
 	public void buyClue(int i) {
+		Debug.Log ("clue: " + i);
 		ButtonSound.playSound ();
 		clueList [i].activate (i);
 		updateCoinText ();
-		// not the best solution, just implemented in order to have a working product for the presentation.
-		clueButton [i+3].interactable = false;
-		ClueMaster.activateClue (i);
 	}
 
 	public void backToMainlevel() {
 		ButtonSound.playSound ();
-		Application.LoadLevel ("mainlevel_1");
+		Application.LoadLevel ("MainLevel");
 	}
 
 	private void updateCoinText() {

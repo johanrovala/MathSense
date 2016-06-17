@@ -117,7 +117,7 @@ AudioSource:
   m_Volume: .189999998
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -183,7 +183,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &473222185
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +396,7 @@ RectTransform:
   m_Children:
   - {fileID: 498250826}
   - {fileID: 1638584665}
+  - {fileID: 2111016494}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
@@ -700,7 +701,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1169706338
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,8 +890,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2111016492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63, y: 41, z: 37.4529266}
-  m_LocalScale: {x: 40, y: 40, z: 1}
+  m_LocalPosition: {x: 5.36936426, y: -23.8156967, z: 490.83252}
+  m_LocalScale: {x: 173.205078, y: 173.205078, z: 4.33012676}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 511415679}
+  m_RootOrder: 2

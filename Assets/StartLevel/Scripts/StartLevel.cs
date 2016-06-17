@@ -15,6 +15,6 @@ public class StartLevel : MonoBehaviour {
 	
 	public void LoadStage() {
 		ButtonSound.playSound ();
-		Application.LoadLevel ("mainlevel_1");
+		Application.LoadLevel ("MainLevel");
 	}
 }
